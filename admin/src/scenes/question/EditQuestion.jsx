@@ -21,7 +21,7 @@ const EditQuestion = () => {
     useEffect(() => {
         const fetchData = async () => {
             try {
-                const questionResponse = await axios.get(`http://localhost:8000/api/v1/question/single/${questionId}`);
+                const questionResponse = await axios.get(`http://localhost:8001/api/v1/question/single/${questionId}`);
                 const questionData = questionResponse.data.question;
 
                 // setQuestion({
@@ -43,7 +43,7 @@ const EditQuestion = () => {
                 });
 
 
-                const categoriesResponse = await axios.get('http://localhost:8000/api/v1/category/all');
+                const categoriesResponse = await axios.get('http://localhost:8001/api/v1/category/all');
                 setCategories(categoriesResponse.data.categories);
 
                 setLoading(false);
@@ -76,7 +76,7 @@ const EditQuestion = () => {
             };
 
             // Send a PUT request to update the question
-            await axios.put(`http://localhost:8000/api/v1/question/${questionId}`, updatedQuestion);
+            await axios.put(`http://localhost:8001/api/v1/question/${questionId}`, updatedQuestion);
 
             // After successfully updating, navigate back to the question list
             navigate('/question');

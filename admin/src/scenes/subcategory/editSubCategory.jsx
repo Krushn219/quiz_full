@@ -18,9 +18,9 @@ const EditSubCategory = () => {
         try {
             async function fetchData() {
                 // Fetch category details based on categoryId
-                await axios.get(`http://localhost:8000/api/v1/subcategory/single/${subcategoryId}`)
+                await axios.get(`http://localhost:8001/api/v1/subcategory/single/${subcategoryId}`)
                     .then((response) => {
-                        const absoluteImageUrl = `http://localhost:8000/${response.data.subCategory.image.replace(/\\/g, '/')}`;
+                        const absoluteImageUrl = `http://localhost:8001/${response.data.subCategory.image.replace(/\\/g, '/')}`;
                         setSubCategory({
                             subCategory_name: response.data.subCategory.subCategory_name,
                             category: response.data.subCategory.category,
@@ -66,7 +66,7 @@ const EditSubCategory = () => {
     //         formData.append('image', category.image);
 
     //         // Send a PUT request with the formData
-    //         const response = await axios.put(`http://localhost:8000/api/v1/category/${categoryId}`, formData);
+    //         const response = await axios.put(`http://localhost:8001/api/v1/category/${categoryId}`, formData);
 
     //         // Handle the response and provide feedback to the user
     //         console.log('Category data updated successfully:', response.data);
@@ -88,7 +88,7 @@ const EditSubCategory = () => {
 
 
         // Send a PUT request with the formData
-        axios.put(`http://localhost:8000/api/v1/subcategory/${subcategoryId}`, formData)
+        axios.put(`http://localhost:8001/api/v1/subcategory/${subcategoryId}`, formData)
             .then((response) => {
                 // Handle the response and provide feedback to the user
                 console.log('Category data updated successfully:', response.data);

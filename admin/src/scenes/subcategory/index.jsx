@@ -10,7 +10,7 @@ const SunCategory = () => {
     const navigate = useNavigate();
     const [subcategories, setSubCategories] = useState([]);
     const [subcategoriesWithCategory, setSubcategoriesWithCategory] = useState([]);
-    const apiUrl = 'http://localhost:8000/api/v1/subcategory/all';
+    const apiUrl = 'http://localhost:8001/api/v1/subcategory/all';
 
     useEffect(() => {
         axios.get(apiUrl)
@@ -19,12 +19,12 @@ const SunCategory = () => {
                 const subcategoriesWithImageUrls = response.data.subCategories.map((subcategory) => ({
                     ...subcategory,
                     image
-                        : `http://localhost:8000/${subcategory.image.replace(/\\/g, '/')}`,
+                        : `http://localhost:8001/${subcategory.image.replace(/\\/g, '/')}`,
                 }));
                 setSubCategories(subcategoriesWithImageUrls);
 
                 // Fetch category names
-                axios.get('http://localhost:8000/api/v1/category/all')
+                axios.get('http://localhost:8001/api/v1/category/all')
                     .then((categoryResponse) => {
                         const categories = categoryResponse.data.categories;
                         // Map category IDs to their names
@@ -44,7 +44,7 @@ const SunCategory = () => {
     }, []);
 
     const handleDeleteCategory = (subcategoryId) => {
-        axios.delete(`http://localhost:8000/api/v1/subcategory/${subcategoryId}`)
+        axios.delete(`http://localhost:8001/api/v1/subcategory/${subcategoryId}`)
             .then((response) => {
                 // Handle the response and provide feedback to the user
                 console.log('SubCategory deleted successfully:', response.data);

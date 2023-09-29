@@ -32,7 +32,7 @@ const NewSubCategory = () => {
 
             // Make a POST request to your API endpoint with the requestData
             const response = await axios.post(
-                "http://localhost:8000/api/v1/subcategory/create",
+                "http://localhost:8001/api/v1/subcategory/create",
                 formData,
                 {
                     headers: {
@@ -58,7 +58,7 @@ const NewSubCategory = () => {
     };
 
     useEffect(() => {
-        axios.get('http://localhost:8000/api/v1/category/all')
+        axios.get('http://localhost:8001/api/v1/category/all')
             .then((response) => {
                 setCategories(response.data.categories);
             })

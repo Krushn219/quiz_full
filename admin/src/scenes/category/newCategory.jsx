@@ -28,7 +28,7 @@ const Form = () => {
 
             // Make a POST request to your API endpoint with the requestData
             const response = await axios.post(
-                "http://localhost:8000/api/v1/category/create",
+                "http://localhost:8001/api/v1/category/create",
                 formData,
                 {
                     headers: {

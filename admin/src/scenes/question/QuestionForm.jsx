@@ -46,7 +46,7 @@ const QuestionForm = () => {
 
         try {
             // Send a POST request to create a new question
-            const response = await axios.post('http://localhost:8000/api/v1/question/create', questionData);
+            const response = await axios.post('http://localhost:8001/api/v1/question/create', questionData);
 
             // Check if the request was successful
             if (response.status === 200) {
@@ -71,7 +71,7 @@ const QuestionForm = () => {
     useEffect(() => {
         // Fetch categories when the component mounts
         axios
-            .get('http://localhost:8000/api/v1/subcategory/all')
+            .get('http://localhost:8001/api/v1/subcategory/all')
             .then((response) => {
                 setSubCategories(response.data.subCategories);
             })

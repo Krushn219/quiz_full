@@ -21,7 +21,7 @@ const AllQuestions = () => {
     useEffect(() => {
         // Fetch questions when the component mounts
         axios
-            .get('http://localhost:8000/api/v1/question/all')
+            .get('http://localhost:8001/api/v1/question/all')
             .then((response) => {
                 setQuestions(response.data.questions);
             })
@@ -38,7 +38,7 @@ const AllQuestions = () => {
     const handleDeleteQuestion = async (questionId) => {
         try {
             // Send a DELETE request to delete the question
-            await axios.delete(`http://localhost:8000/api/v1/question/${questionId}`);
+            await axios.delete(`http://localhost:8001/api/v1/question/${questionId}`);
 
             // Remove the deleted question from the state
             setQuestions((prevQuestions) =>
