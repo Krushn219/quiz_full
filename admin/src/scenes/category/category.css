@@ -1,0 +1,36 @@
+.category-list-item {
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    border-radius: 8px;
+}
+
+.category-avatar {
+    width: 64px;
+    height: 64px;
+}
+
+.category-title {
+    margin-left: 10px;
+}
+
+.css-47iiw-MuiTypography-root {
+    font-size: 20px !important;
+}
+
+.css-518kzi-MuiListItemSecondaryAction-root {
+    right: 13% !important;
+}
+
+.css-1rv476z-MuiInputBase-input-MuiFilledInput-input{
+    font-size: 16px !important;
+}
+.css-10botns-MuiInputBase-input-MuiFilledInput-input {
+    font-size: 16px !important;
+}
+.css-bj2p8a-MuiPaper-root-MuiCard-root{
+    background-color: transparent !important;
+    background-image: none !important;
+}
+.css-bhp9pd-MuiPaper-root-MuiCard-root{
+    background-color: transparent !important;
+    /* background-image: none !important; */
+}
