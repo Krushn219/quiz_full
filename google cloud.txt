@@ -1,0 +1,33 @@
+rm -rf
+touch app.yaml
+
+runtime: nodejs18
+handlers:
+  # Serve all static files with url ending with a file extension
+  - url: /(.*\..+)$
+    static_files: build/\1
+    upload: build/(.*\..+)$
+  # Catch all handler to index.html
+  - url: /.*
+    static_files: build/index.html
+    upload: build/index.html
+ => gcloud app deploy
+
+=> if occur auth issue 
+  gcloud auth login
+
+gcloud config set project [SOURCE_PROJECT_ID]
+
+https://quiz-back.el.r.appspot.com
+
+https://quiz-back.el.r.appspot.com/api/v1/category/all
+
+
+https://www.youtube.com/watch?v=UJIOJolC4Po
+https://www.codingdeft.com/posts/react-deploy-google-cloud-app-engine/
+
+=> Full course
+https://www.youtube.com/watch?v=TtgvpskquH0&list=PLCz7viF9QXAEpaaRcdhATwy3IQBMofVMQ
+https://www.youtube.com/watch?v=228YYvNaP3g&list=PLrFWmDe-rblr-LbFX3VUIxDdmG0-yLtf_
+
+https://docs.bitnami.com/google/faq/administration/use-firewall/#:~:text=follow%20these%20steps%3A-,Log%20in%20to%20the%20Google%20Cloud%20Console%20using%20the%20Google,the%20top%20of%20the%20page.
