@@ -3,6 +3,10 @@ import { Link, useNavigate, useParams } from 'react-router-dom';
 import axios from 'axios';
 import { Box, Typography, TextField, Button, Card, CardMedia, Input } from '@mui/material';
 
+// Import the environment variable
+const baseUrl = process.env.REACT_APP_BASE_URL;
+
+
 const EditCategory = () => {
     const { categoryId } = useParams();
     const navigate = useNavigate();
@@ -15,9 +19,9 @@ const EditCategory = () => {
 
     useEffect(() => {
         // Fetch category details based on categoryId
-        axios.get(`http://localhost:8001/api/v1/category/single/${categoryId}`)
+        axios.get(`${baseUrl}/api/v1/category/single/${categoryId}`)
             .then((response) => {
-                const absoluteImageUrl = `http://localhost:8001/${response.data.category.image.replace(/\\/g, '/')}`;
+                const absoluteImageUrl = `${baseUrl}/${response.data.category.image.replace(/\\/g, '/')}`;
                 setCategory({
                     category: response.data.category.category,
                     description: response.data.category.description,
@@ -54,7 +58,7 @@ const EditCategory = () => {
     //         formData.append('image', category.image);
 
     //         // Send a PUT request with the formData
-    //         const response = await axios.put(`http://localhost:8001/api/v1/category/${categoryId}`, formData);
+    //         const response = await axios.put(`${baseUrl}/api/v1/category/${categoryId}`, formData);
 
     //         // Handle the response and provide feedback to the user
     //         console.log('Category data updated successfully:', response.data);
@@ -75,12 +79,12 @@ const EditCategory = () => {
 
 
         // Send a PUT request with the formData
-        axios.put(`http://localhost:8001/api/v1/category/${categoryId}`, formData)
+        axios.put(`${baseUrl}/api/v1/category/${categoryId}`, formData)
             .then((response) => {
                 // Handle the response and provide feedback to the user
                 console.log('Category data updated successfully:', response.data);
                 // Redirect to the category page
-                navigate('/form');
+                navigate('/');
             })
             .catch((error) => {
                 console.error('Error updating category data:', error);
@@ -94,7 +98,7 @@ const EditCategory = () => {
                     <Typography variant="h2" gutterBottom mb={4}>
                         Edit Category
                     </Typography>
-                    <Link to="/form">
+                    <Link to="/">
                         <Button variant="contained" color="primary" sx={{
                             fontSize: "16px",
                             backgroundColor: '#007bff',

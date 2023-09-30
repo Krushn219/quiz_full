@@ -3,6 +3,9 @@ import { useParams, useNavigate, Link } from 'react-router-dom';
 import axios from 'axios';
 import { Box, Typography, TextField, Button, Select, MenuItem, FormControl, InputLabel } from '@mui/material';
 
+// Import the environment variable
+const baseUrl = process.env.REACT_APP_BASE_URL;
+
 const EditQuestion = () => {
     const { questionId } = useParams();
     const navigate = useNavigate();
@@ -21,7 +24,7 @@ const EditQuestion = () => {
     useEffect(() => {
         const fetchData = async () => {
             try {
-                const questionResponse = await axios.get(`http://localhost:8001/api/v1/question/single/${questionId}`);
+                const questionResponse = await axios.get(`${baseUrl}/api/v1/question/single/${questionId}`);
                 const questionData = questionResponse.data.question;
 
                 // setQuestion({
@@ -43,7 +46,7 @@ const EditQuestion = () => {
                 });
 
 
-                const categoriesResponse = await axios.get('http://localhost:8001/api/v1/category/all');
+                const categoriesResponse = await axios.get(`${baseUrl}/api/v1/category/all`);
                 setCategories(categoriesResponse.data.categories);
 
                 setLoading(false);
@@ -55,8 +58,6 @@ const EditQuestion = () => {
 
         fetchData();
     }, [questionId]);
-
-    console.log("questionData+++", question)
 
 
     const handleSaveChanges = async (e) => {
@@ -76,7 +77,7 @@ const EditQuestion = () => {
             };
 
             // Send a PUT request to update the question
-            await axios.put(`http://localhost:8001/api/v1/question/${questionId}`, updatedQuestion);
+            await axios.put(`${baseUrl}/api/v1/question/${questionId}`, updatedQuestion);
 
             // After successfully updating, navigate back to the question list
             navigate('/question');

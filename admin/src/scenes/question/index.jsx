@@ -14,6 +14,9 @@ import {
 import { Delete as DeleteIcon, Edit as EditIcon } from '@mui/icons-material';
 import { Link, useNavigate } from 'react-router-dom';
 
+// Import the environment variable
+const baseUrl = process.env.REACT_APP_BASE_URL;
+
 const AllQuestions = () => {
     const [questions, setQuestions] = useState([]);
     const navigate = useNavigate();
@@ -21,7 +24,7 @@ const AllQuestions = () => {
     useEffect(() => {
         // Fetch questions when the component mounts
         axios
-            .get('http://localhost:8001/api/v1/question/all')
+            .get(`${baseUrl}/api/v1/question/all`)
             .then((response) => {
                 setQuestions(response.data.questions);
             })
@@ -38,7 +41,7 @@ const AllQuestions = () => {
     const handleDeleteQuestion = async (questionId) => {
         try {
             // Send a DELETE request to delete the question
-            await axios.delete(`http://localhost:8001/api/v1/question/${questionId}`);
+            await axios.delete(`${baseUrl}/api/v1/question/${questionId}`);
 
             // Remove the deleted question from the state
             setQuestions((prevQuestions) =>

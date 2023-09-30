@@ -7,6 +7,9 @@ import axios from "axios"
 import FormData from "form-data";
 import { Link, useNavigate } from "react-router-dom";
 
+// Import the environment variable
+const baseUrl = process.env.REACT_APP_BASE_URL;
+
 
 const Form = () => {
     const navigate = useNavigate();
@@ -28,7 +31,7 @@ const Form = () => {
 
             // Make a POST request to your API endpoint with the requestData
             const response = await axios.post(
-                "http://localhost:8001/api/v1/category/create",
+                `${baseUrl}/api/v1/category/create`,
                 formData,
                 {
                     headers: {

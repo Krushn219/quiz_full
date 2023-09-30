@@ -6,6 +6,9 @@ import axios from 'axios';
 import "./question.css"
 import { useTheme } from '@mui/material/styles';
 
+// Import the environment variable
+const baseUrl = process.env.REACT_APP_BASE_URL;
+
 
 const QuestionForm = () => {
     const theme = useTheme();
@@ -46,7 +49,7 @@ const QuestionForm = () => {
 
         try {
             // Send a POST request to create a new question
-            const response = await axios.post('http://localhost:8001/api/v1/question/create', questionData);
+            const response = await axios.post(`${baseUrl}/api/v1/question/create`, questionData);
 
             // Check if the request was successful
             if (response.status === 200) {
@@ -71,7 +74,7 @@ const QuestionForm = () => {
     useEffect(() => {
         // Fetch categories when the component mounts
         axios
-            .get('http://localhost:8001/api/v1/subcategory/all')
+            .get(`${baseUrl}/api/v1/subcategory/all`)
             .then((response) => {
                 setSubCategories(response.data.subCategories);
             })

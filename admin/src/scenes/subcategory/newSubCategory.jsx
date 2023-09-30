@@ -7,6 +7,9 @@ import axios from "axios"
 import FormData from "form-data";
 import { Link, useNavigate } from "react-router-dom";
 
+// Import the environment variable
+const baseUrl = process.env.REACT_APP_BASE_URL;
+
 
 const NewSubCategory = () => {
     const navigate = useNavigate();
@@ -32,7 +35,7 @@ const NewSubCategory = () => {
 
             // Make a POST request to your API endpoint with the requestData
             const response = await axios.post(
-                "http://localhost:8001/api/v1/subcategory/create",
+                `${baseUrl}/api/v1/subcategory/create`,
                 formData,
                 {
                     headers: {
@@ -58,7 +61,7 @@ const NewSubCategory = () => {
     };
 
     useEffect(() => {
-        axios.get('http://localhost:8001/api/v1/category/all')
+        axios.get(`${baseUrl}/api/v1/category/all`)
             .then((response) => {
                 setCategories(response.data.categories);
             })

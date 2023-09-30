@@ -5,11 +5,14 @@ import { Delete as DeleteIcon, Edit as EditIcon } from '@mui/icons-material';
 import "./category.css"
 import { Link, useNavigate } from 'react-router-dom';
 
+// Import the environment variable
+const baseUrl = process.env.REACT_APP_BASE_URL;
+
 
 const Form = () => {
   const navigate = useNavigate();
   const [categories, setCategories] = useState([]);
-  const apiUrl = 'http://localhost:8001/api/v1/category/all';
+  const apiUrl = `${baseUrl}/api/v1/category/all`;
 
   useEffect(() => {
     axios.get(apiUrl)
@@ -18,7 +21,7 @@ const Form = () => {
       const categoriesWithImageUrls = response.data.categories.map((category) => ({
         ...category,
         image
-        : `http://localhost:8001/${category.image.replace(/\\/g, '/')}`,
+        : `${baseUrl}/${category.image.replace(/\\/g, '/')}`,
       }));
       setCategories(categoriesWithImageUrls);
     })
@@ -28,7 +31,7 @@ const Form = () => {
   }, []);
 
   const handleDeleteCategory = (categoryId) => {
-    axios.delete(`http://localhost:8001/api/v1/category/${categoryId}`)
+    axios.delete(`${baseUrl}/api/v1/category/${categoryId}`)
       .then((response) => {
         // Handle the response and provide feedback to the user
         console.log('Category deleted successfully:', response.data);
