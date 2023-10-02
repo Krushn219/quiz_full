@@ -22,6 +22,8 @@ https://quiz-back.el.r.appspot.com
 
 https://quiz-back.el.r.appspot.com/api/v1/category/all
 
+https://quiz-admin-400606.el.r.appspot.com
+
 
 https://www.youtube.com/watch?v=UJIOJolC4Po
 https://www.codingdeft.com/posts/react-deploy-google-cloud-app-engine/
