@@ -1,0 +1,780 @@
+{
+	"info": {
+		"_postman_id": "85cefadb-f9bf-4b79-9355-1663895bace6",
+		"name": "Quiz",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "29726146"
+	},
+	"item": [
+		{
+			"name": "Category",
+			"item": [
+				{
+					"name": "create",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "quizname",
+									"value": "test quiz 2",
+									"type": "text",
+									"disabled": true
+								},
+								{
+									"key": "category",
+									"value": "Geography",
+									"type": "text"
+								},
+								{
+									"key": "description",
+									"value": "This is main Geography category.",
+									"type": "text"
+								},
+								{
+									"key": "image",
+									"type": "file",
+									"src": "/C:/Users/SA10/Downloads/geography.jpg"
+								}
+							]
+						},
+						"url": {
+							"raw": "localhost:8000/api/v1/category/create",
+							"host": [
+								"localhost"
+							],
+							"port": "8000",
+							"path": [
+								"api",
+								"v1",
+								"category",
+								"create"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Single record",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "localhost:8000/api/v1/category/single/650c01f3391a9ef7ba104027",
+							"host": [
+								"localhost"
+							],
+							"port": "8000",
+							"path": [
+								"api",
+								"v1",
+								"category",
+								"single",
+								"650c01f3391a9ef7ba104027"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "All Records",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "localhost:8001/api/v1/category?category=all",
+							"host": [
+								"localhost"
+							],
+							"port": "8001",
+							"path": [
+								"api",
+								"v1",
+								"category"
+							],
+							"query": [
+								{
+									"key": "category",
+									"value": "all"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "All Records AdminPanel",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "localhost:8000/api/v1/category/all",
+							"host": [
+								"localhost"
+							],
+							"port": "8000",
+							"path": [
+								"api",
+								"v1",
+								"category",
+								"all"
+							],
+							"query": [
+								{
+									"key": "page",
+									"value": "2",
+									"disabled": true
+								},
+								{
+									"key": "limit",
+									"value": "2",
+									"disabled": true
+								},
+								{
+									"key": "search",
+									"value": "w",
+									"disabled": true
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Update Category",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "quizname",
+									"value": "test 2 update",
+									"type": "text"
+								},
+								{
+									"key": "category",
+									"value": "test quiz 2",
+									"type": "text"
+								},
+								{
+									"key": "description",
+									"value": "description update",
+									"type": "text"
+								},
+								{
+									"key": "image",
+									"type": "file",
+									"src": "/C:/Users/SA10/Downloads/ZMBC10.jpg"
+								}
+							]
+						},
+						"url": {
+							"raw": "localhost:8000/api/v1/category/650bf8ffa987ade8dec4dbfa",
+							"host": [
+								"localhost"
+							],
+							"port": "8000",
+							"path": [
+								"api",
+								"v1",
+								"category",
+								"650bf8ffa987ade8dec4dbfa"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Delete Category",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "localhost:8000/api/v1/category/650be1a87b4adfaf72431311",
+							"host": [
+								"localhost"
+							],
+							"port": "8000",
+							"path": [
+								"api",
+								"v1",
+								"category",
+								"650be1a87b4adfaf72431311"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "image upload",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8000/uploads/1695283455410-Red_Kitten.jpg",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8000",
+							"path": [
+								"uploads",
+								"1695283455410-Red_Kitten.jpg"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Sub Category",
+			"item": [
+				{
+					"name": "create",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "subCategory_name",
+									"value": "Historical Geography",
+									"type": "text"
+								},
+								{
+									"key": "category",
+									"value": "6517e659216beb8e1e169f3c",
+									"type": "text"
+								},
+								{
+									"key": "description",
+									"value": "This is a subcategory for Geography",
+									"type": "text"
+								},
+								{
+									"key": "image",
+									"type": "file",
+									"src": "/C:/Users/SA10/Downloads/geography.jpg"
+								}
+							]
+						},
+						"url": {
+							"raw": "localhost:8000/api/v1/subcategory/create",
+							"host": [
+								"localhost"
+							],
+							"port": "8000",
+							"path": [
+								"api",
+								"v1",
+								"subcategory",
+								"create"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Single record",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "localhost:8000/api/v1/subcategory/single/6513d7256b40b933607972c1",
+							"host": [
+								"localhost"
+							],
+							"port": "8000",
+							"path": [
+								"api",
+								"v1",
+								"subcategory",
+								"single",
+								"6513d7256b40b933607972c1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "All Records",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "localhost:8000/api/v1/subcategory/all",
+							"host": [
+								"localhost"
+							],
+							"port": "8000",
+							"path": [
+								"api",
+								"v1",
+								"subcategory",
+								"all"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "All Records for admin panel",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "localhost:8000/api/v1/subcategory",
+							"host": [
+								"localhost"
+							],
+							"port": "8000",
+							"path": [
+								"api",
+								"v1",
+								"subcategory"
+							],
+							"query": [
+								{
+									"key": "page",
+									"value": null,
+									"disabled": true
+								},
+								{
+									"key": "limit",
+									"value": null,
+									"disabled": true
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Subcategory By Category",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "localhost:8000/api/v1/subcategory/6513a535e368f8dc7c0e7308",
+							"host": [
+								"localhost"
+							],
+							"port": "8000",
+							"path": [
+								"api",
+								"v1",
+								"subcategory",
+								"6513a535e368f8dc7c0e7308"
+							],
+							"query": [
+								{
+									"key": null,
+									"value": "650d55f6c09ad2e267ada8bd",
+									"description": "test 2",
+									"disabled": true
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Update Category",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "subCategory_name",
+									"value": "Test3 subcategory 1",
+									"type": "text"
+								},
+								{
+									"key": "category",
+									"value": "651102812375477a36389b3e",
+									"type": "text"
+								},
+								{
+									"key": "description",
+									"value": "subcategory description",
+									"type": "text"
+								},
+								{
+									"key": "image",
+									"type": "file",
+									"src": "/C:/Users/SA10/Downloads/sub3.jpg"
+								}
+							]
+						},
+						"url": {
+							"raw": "localhost:8000/api/v1/subcategory/6513aa9378f8cf11be0a5e1d",
+							"host": [
+								"localhost"
+							],
+							"port": "8000",
+							"path": [
+								"api",
+								"v1",
+								"subcategory",
+								"6513aa9378f8cf11be0a5e1d"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Delete Category",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "localhost:8000/api/v1/subcategory/6513d7256b40b933607972c1",
+							"host": [
+								"localhost"
+							],
+							"port": "8000",
+							"path": [
+								"api",
+								"v1",
+								"subcategory",
+								"6513d7256b40b933607972c1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "image upload",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8000/uploads/1695283455410-Red_Kitten.jpg",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8000",
+							"path": [
+								"uploads",
+								"1695283455410-Red_Kitten.jpg"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Question",
+			"item": [
+				{
+					"name": "Create Question",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"question\": \"Mohorovičić discontinuity is also known as a boundary between ____?\",\r\n  \"options\": [\"Earth’s crust and mantle\", \"Sial and Sima\", \"Lithosphere and Exosphere\", \"Mantle and Earth’s Core\"],\r\n  \"answer\": \"option1\",\r\n  \"subcategory\": \"6517e7c7216beb8e1e169f4b\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:8000/api/v1/question/create",
+							"host": [
+								"localhost"
+							],
+							"port": "8000",
+							"path": [
+								"api",
+								"v1",
+								"question",
+								"create"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Single Record",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "localhost:8000/api/v1/question/single/651172ac23ae2674860fe9a5",
+							"host": [
+								"localhost"
+							],
+							"port": "8000",
+							"path": [
+								"api",
+								"v1",
+								"question",
+								"single",
+								"651172ac23ae2674860fe9a5"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "All Record",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "localhost:8000/api/v1/question/all",
+							"host": [
+								"localhost"
+							],
+							"port": "8000",
+							"path": [
+								"api",
+								"v1",
+								"question",
+								"all"
+							],
+							"query": [
+								{
+									"key": "category",
+									"value": "test",
+									"disabled": true
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "All Record Admin panel",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "localhost:8000/api/v1/question?search=w",
+							"host": [
+								"localhost"
+							],
+							"port": "8000",
+							"path": [
+								"api",
+								"v1",
+								"question"
+							],
+							"query": [
+								{
+									"key": "page",
+									"value": "4",
+									"disabled": true
+								},
+								{
+									"key": "limit",
+									"value": "10",
+									"disabled": true
+								},
+								{
+									"key": "search",
+									"value": "w"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Update Question",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"question\": \"What is the capital of Spain?\",\r\n  \"options\": [\"London\", \"Berlin\", \"Delhi\", \"Paris\"],\r\n  \"answer\": \"option3\",\r\n  \"category\": \"650be95f4226ea0c3bf3898e\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:8000/api/v1/question/650be38ff835f1c346ef512f",
+							"host": [
+								"localhost"
+							],
+							"port": "8000",
+							"path": [
+								"api",
+								"v1",
+								"question",
+								"650be38ff835f1c346ef512f"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Delete",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "localhost:8000/api/v1/question/650d3b718cab3d73ab5cb889",
+							"host": [
+								"localhost"
+							],
+							"port": "8000",
+							"path": [
+								"api",
+								"v1",
+								"question",
+								"650d3b718cab3d73ab5cb889"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Questions by Category",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "localhost:8000/api/v1/question/category/650d55f6c09ad2e267ada8bd",
+							"host": [
+								"localhost"
+							],
+							"port": "8000",
+							"path": [
+								"api",
+								"v1",
+								"question",
+								"category",
+								"650d55f6c09ad2e267ada8bd"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Questions by SubCategory",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "localhost:8000/api/v1/question/subcategory/6513d7256b40b933607972c1",
+							"host": [
+								"localhost"
+							],
+							"port": "8000",
+							"path": [
+								"api",
+								"v1",
+								"question",
+								"subcategory",
+								"6513d7256b40b933607972c1"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "User",
+			"item": [
+				{
+					"name": "Create User",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [
+								{
+									"key": "user_name",
+									"value": "Krushnavandan",
+									"type": "text"
+								},
+								{
+									"key": "email",
+									"value": "krushn@gmail.com",
+									"type": "text"
+								},
+								{
+									"key": "password",
+									"value": "krushn@219",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "localhost:8000/api/v1/user/create",
+							"host": [
+								"localhost"
+							],
+							"port": "8000",
+							"path": [
+								"api",
+								"v1",
+								"user",
+								"create"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Auth",
+			"item": [
+				{
+					"name": "Login",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [
+								{
+									"key": "email",
+									"value": "krushn@gmail.com",
+									"type": "text"
+								},
+								{
+									"key": "password",
+									"value": "krushn@219",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "localhost:8000/api/v1/auth/login",
+							"host": [
+								"localhost"
+							],
+							"port": "8000",
+							"path": [
+								"api",
+								"v1",
+								"auth",
+								"login"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		}
+	]
+}
